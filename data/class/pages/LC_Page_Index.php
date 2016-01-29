@@ -69,4 +69,34 @@ class LC_Page_Index extends LC_Page_Ex
         $objCustomer = new SC_Customer_Ex();
         $this->isLogin = $objCustomer->isLoginSuccess(true);
     }
+
+    /**
+     * Page のレスポンス送信.
+     *
+     * @return void
+     */
+    /*
+    public function sendResponse()
+    {
+        $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
+        // ローカルフックポイントを実行.
+        $this->doLocalHookpointAfter($objPlugin);
+
+        // HeadNaviにpluginテンプレートを追加する.
+        $objPlugin->setHeadNaviBlocs($this->arrPageLayout['HeadNavi']);
+
+        // スーパーフックポイントを実行.
+        $objPlugin->doAction('LC_Page_process', array($this));
+
+        // ページクラス名をテンプレートに渡す
+        $arrBacktrace = debug_backtrace();
+        if (strlen($this->tpl_page_class_name) === 0) {
+            $this->tpl_page_class_name = preg_replace('/_Ex$/', '', $arrBacktrace[1]['class']);
+        }
+
+        $this->objDisplay->prepare($this);
+        $this->objDisplay->addHeader('Vary', 'User-Agent');
+        $this->objDisplay->response->write();
+    }
+    */
 }

@@ -53,4 +53,22 @@ class LC_Page_Index_Ex extends LC_Page_Index
     {
         parent::process();
     }
+
+    /**
+     * Page のアクション.
+     *
+     * @return void
+     */
+    public function action()
+    {
+        //決済処理中ステータスのロールバック
+        $objPurchase = new SC_Helper_Purchase_Ex();
+        $objPurchase->cancelPendingOrder(PENDING_ORDER_CANCEL_FLAG);
+
+        $this->tpl_title = '';
+        $objCustomer = new SC_Customer_Ex();
+
+        // isLoginSuccessをカスタマイズ
+        $this->isLogin = $objCustomer->isLoginSuccess(true);
+    }
 }

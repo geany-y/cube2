@@ -25,4 +25,28 @@ require_once CLASS_REALDIR . 'SC_Customer.php';
 
 class SC_Customer_Ex extends SC_Customer
 {
+    // ログインに成功しているか判定する。
+    public function isLoginSuccess($dont_check_email_mobile = false)
+    {
+        // ログイン時のメールアドレスとDBのメールアドレスが一致している場合
+        if (isset($_SESSION['customer']['customer_id'])
+            && SC_Utils_Ex::sfIsInt($_SESSION['customer']['customer_id'])
+        ) {
+            $objQuery =& SC_Query_Ex::getSingletonInstance();
+            $email = $objQuery->get('email', 'dtb_customer', 'customer_id = ?', array($_SESSION['customer']['customer_id']));
+            if ($email == $_SESSION['customer']['email']) {
+                // モバイルサイトの場合は携帯のメールアドレスが登録されていることもチェックする。
+                // ただし $dont_check_email_mobile が true の場合はチェックしない。
+                if (SC_Display_Ex::detectDevice() == DEVICE_TYPE_MOBILE && !$dont_check_email_mobile) {
+                    $email_mobile = $objQuery->get('email_mobile', 'dtb_customer', 'customer_id = ?', array($_SESSION['customer']['customer_id']));
+
+                    return isset($email_mobile);
+                }
+
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

@@ -85,8 +85,6 @@ class LC_Page_FrontParts_LoginCheck extends LC_Page_Ex
         // モードによって分岐
         switch ($this->getMode()) {
             case 'login':
-                // --- ログイン
-
                 // 入力値のエラーチェック
                 $objFormParam->trimParam();
                 $objFormParam->toLower('login_email');

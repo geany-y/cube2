@@ -25,4 +25,40 @@ require_once CLASS_REALDIR . 'pages/LC_Page.php';
 
 class LC_Page_Ex extends LC_Page
 {
+    /**
+     * Page のレスポンス送信.
+     *
+     * @return void
+     */
+    public function sendResponse()
+    {
+        // ループ防止に現在URLを格納
+        $location = '';
+        $netUrl = new Net_URL();
+        $location = $netUrl->getUrl();
+
+        // ログインされていなく、リダイレクト処理
+        if (empty($this->isLogin) && !preg_match('/^.*original.*/', $location)) {
+            $this->objDisplay->response->sendRedirect('original');
+        }
+        $objPlugin = SC_Helper_Plugin_Ex::getSingletonInstance($this->plugin_activate_flg);
+        // ローカルフックポイントを実行.
+        $this->doLocalHookpointAfter($objPlugin);
+
+        // HeadNaviにpluginテンプレートを追加する.
+        $objPlugin->setHeadNaviBlocs($this->arrPageLayout['HeadNavi']);
+
+        // スーパーフックポイントを実行.
+        $objPlugin->doAction('LC_Page_process', array($this));
+
+        // ページクラス名をテンプレートに渡す
+        $arrBacktrace = debug_backtrace();
+        if (strlen($this->tpl_page_class_name) === 0) {
+            $this->tpl_page_class_name = preg_replace('/_Ex$/', '', $arrBacktrace[1]['class']);
+        }
+
+        $this->objDisplay->prepare($this);
+        $this->objDisplay->addHeader('Vary', 'User-Agent');
+        $this->objDisplay->response->write();
+    }
 }

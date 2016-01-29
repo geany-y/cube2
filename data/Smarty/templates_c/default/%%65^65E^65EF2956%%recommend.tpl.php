@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2016-01-29 13:29:49
+<?php /* Smarty version 2.6.27, created on 2016-01-29 15:19:11
          compiled from C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 24, false),array('modifier', 'u', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 32, false),array('modifier', 'sfNoImageMainList', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 33, false),array('modifier', 'h', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 33, false),array('modifier', 'n2s', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 41, false),array('modifier', 'nl2br', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/recommend.tpl', 43, false),)), $this); ?>

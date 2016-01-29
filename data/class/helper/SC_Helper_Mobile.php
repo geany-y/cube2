@@ -84,6 +84,7 @@ class SC_Helper_Mobile
     {
         if (!SC_MobileUserAgent_Ex::isSupported()) {
             header('Location: ' . ROOT_URLPATH . 'unsupported/' . DIR_INDEX_PATH);
+            //header('Location: ' . ROOT_URLPATH . 'unsupported/' . DIR_INDEX_PATH);
             exit;
         }
     }

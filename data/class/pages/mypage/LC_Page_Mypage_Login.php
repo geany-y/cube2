@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.php';
+require_once CLASS_EX_REALDIR . 'page_extends/original/LC_Page_AbstractOriginal_Ex.php';
 
 /**
  * Myページログイン のページクラス.
@@ -30,7 +30,7 @@ require_once CLASS_EX_REALDIR . 'page_extends/mypage/LC_Page_AbstractMypage_Ex.p
  * @author LOCKON CO.,LTD.
  * @version $Id$
  */
-class LC_Page_Mypage_Login extends LC_Page_AbstractMypage_Ex
+class LC_Page_Orgignal_Login extends LC_Page_AbstractOriginal_Ex
 {
     /**
      * Page を初期化する.

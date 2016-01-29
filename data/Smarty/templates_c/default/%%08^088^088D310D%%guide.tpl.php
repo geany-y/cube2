@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.27, created on 2016-01-29 13:29:48
+<?php /* Smarty version 2.6.27, created on 2016-01-29 15:19:11
          compiled from C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/guide.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'script_escape', 'C:/xampp/htdocs/cube2/html/../data/Smarty/templates/default/frontparts/bloc/guide.tpl', 28, false),)), $this); ?>
